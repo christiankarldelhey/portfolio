@@ -3,7 +3,7 @@ import hero from '../assets/images/hasen.png';
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
-    website: 'https://example.com',
+    website: 'https://christiankarldelhey.github.io/portfolio/',
     avatar: {
         src: avatar,
         alt: 'Christian Karl Delhey'
