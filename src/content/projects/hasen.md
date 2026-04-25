@@ -3,13 +3,17 @@ title: 'Hasen: Real-Time Multiplayer Card Game'
 description: Full-stack multiplayer card game with real-time WebSocket event architecture, lobby system, turn management, and scoring using Domain-Driven Design.
 publishDate: 'Jan 15 2025'
 isFeatured: true
+image:
+  # src: '/hasen.png'
+  alt: Hasen - Real-Time Multiplayer Card Game
+video: '80lyAojG9Vw'
 seo:
   image:
     src: '../../assets/images/hasen.png'
     alt: Hasen - Real-Time Multiplayer Card Game
 ---
 
-![Hasen preview](../../assets/images/hasen.png)
+<!-- ![Hasen preview](../../assets/images/hasen.png) -->
 
 **Project Overview:**
 Hasen is a full-stack multiplayer card game featuring real-time WebSocket event architecture. The project applies Domain-Driven Design principles with a shared domain layer consumed by both the Vue 3 frontend and Node.js backend, ensuring consistency in game rules and state management.
@@ -41,6 +45,8 @@ Hasen is a full-stack multiplayer card game featuring real-time WebSocket event 
 - Responsive UI with TailwindCSS
 - Smooth animations and transitions
 - Mobile-first responsive layout
+
+<img src="/deck.jpg" alt="Hasen preview" width="600" />
 
 ## Technology Stack
 

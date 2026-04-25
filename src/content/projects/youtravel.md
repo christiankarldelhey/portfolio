@@ -3,13 +3,17 @@ title: 'Youtravel: YouTube Travel Map - Geotagged Video Explorer'
 description: Web app that searches geotagged YouTube travel videos and pins them on an interactive map, with a favorites system for trip planning.
 publishDate: 'Feb 01 2025'
 isFeatured: true
+image:
+  # src: '/youtravel.png'
+  alt: Youtravel - YouTube Travel Map
+video: 'eb-3xtmjExg'
 seo:
   image:
     src: '../../assets/images/youtravel.png'
     alt: Youtravel - YouTube Travel Map
 ---
 
-![Youtravel preview](../../assets/images/youtravel.png)
+<!-- ![Youtravel preview](../../assets/images/youtravel.png) -->
 
 **Project Overview:**
 Youtravel is a web application that searches for geotagged YouTube travel videos and displays them on an interactive map. Users can explore travel content spatially, save favorite videos, and plan trips using video content as inspiration.

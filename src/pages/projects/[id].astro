@@ -24,7 +24,7 @@ type Props = {
 };
 
 const { project, prevProject, nextProject } = Astro.props;
-const { title, description, seo } = project.data;
+const { title, description, seo, video } = project.data;
 const { Content } = await render(project);
 ---
 
@@ -33,6 +33,20 @@ const { Content } = await render(project);
         <header class="mb-8">
             <h1 class="font-serif text-3xl leading-tight font-medium sm:text-5xl sm:leading-tight">{title}</h1>
         </header>
+        {video && (
+            <div class="mb-8 aspect-video w-full overflow-hidden rounded-lg">
+                <iframe
+                    width="560"
+                    height="315"
+                    src={`https://www.youtube.com/embed/${video}`}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    class="h-full w-full"
+                ></iframe>
+            </div>
+        )}
         <div class="prose sm:prose-lg max-w-none">
             <Content />
         </div>

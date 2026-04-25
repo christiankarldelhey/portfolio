@@ -8,7 +8,7 @@ seo:
     alt: Christian Karl Delhey
 ---
 
-![Christian Karl Delhey](../../assets/images/Christian_Delhey.jpeg)
+<!-- ![Christian Karl Delhey](../../assets/images/Christian_Delhey.jpeg) -->
 
 ## Christian Karl Delhey - Senior Front-End Developer
 
