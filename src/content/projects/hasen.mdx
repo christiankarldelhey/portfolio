@@ -4,7 +4,7 @@ description: Full-stack multiplayer card game with real-time WebSocket event arc
 publishDate: 'Jan 15 2025'
 isFeatured: true
 image:
-  # src: '/hasen.png'
+  src: '/hasen.png'
   alt: Hasen - Real-Time Multiplayer Card Game
 video: '80lyAojG9Vw'
 seo:
@@ -13,8 +13,25 @@ seo:
     alt: Hasen - Real-Time Multiplayer Card Game
 ---
 
-<p><strong>Project Overview:</strong><br />
-Hasen is a full-stack multiplayer card game featuring real-time WebSocket event architecture. The project applies Domain-Driven Design principles with a shared domain layer consumed by both the Vue 3 frontend and Node.js backend, ensuring consistency in game rules and state management.</p>
+<div class="flex flex-wrap gap-2">
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Composition API</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Pinia</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Node.js</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Express</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">MongoDB</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Socket.IO</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">WebSockets</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">TailwindCSS</span>
+</div>
+
+<p>Hasen is a full-stack multiplayer card game featuring real-time WebSocket event architecture. The project applies Domain-Driven Design principles with a shared domain layer consumed by both the Vue 3 frontend and Node.js backend, ensuring consistency in game rules and state management.</p>
+
+<div class="flex gap-8 mt-6">
+    <a href="https://hasen-game.onrender.com" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">Play Hasen</a>
+
+    <a href="https://github.com/christiankarldelhey/Hasen" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">GitHub Repository</a>
+</div>
 
 <h2>Objectives</h2>
 
@@ -24,6 +41,14 @@ Hasen is a full-stack multiplayer card game featuring real-time WebSocket event 
     <li>Create a scalable architecture supporting multiple game modes</li>
     <li>Provide smooth user experience with real-time updates</li>
 </ol>
+
+<figure class="relative mt-6">
+    <div class="relative">
+        <img src="/deck.jpg" alt="Hasen preview" class="rounded-lg" />
+        <div class="absolute inset-0 bg-black opacity-20 rounded-lg pointer-events-none"></div>
+    </div>
+    <figcaption class="text-sm italic text-gray-600 dark:text-gray-400 mt-2">Deck sprite of Hasen</figcaption>
+</figure>
 
 <h2>Features</h2>
 
@@ -50,41 +75,4 @@ Hasen is a full-stack multiplayer card game featuring real-time WebSocket event 
     <li>Responsive UI with TailwindCSS</li>
     <li>Smooth animations and transitions</li>
     <li>Mobile-first responsive layout</li>
-</ul>
-
-<img src="/deck.jpg" alt="Hasen preview" width="600" />
-
-<h2>Technology Stack</h2>
-
-<div class="flex flex-wrap gap-2">
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Composition API</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Pinia</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Node.js</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Express</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">MongoDB</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Socket.IO</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">WebSockets</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">TailwindCSS</span>
-</div>
-
-<h2>Live Demo</h2>
-
-<a href="https://hasen-game.onrender.com" target="_blank">Play Hasen</a>
-
-<h2>Source Code</h2>
-
-<a href="https://github.com/christiankarldelhey/Hasen" target="_blank">GitHub Repository</a>
-
-<h2>Development Journey</h2>
-
-<p>This project serves as an exploration into real-time architecture and Domain-Driven Design principles. The shared domain layer ensures that game rules are consistent across both client and server, reducing bugs and improving maintainability.</p>
-
-<h2>Future Enhancements</h2>
-
-<ul>
-    <li>Additional game modes and card types</li>
-    <li>Tournament system</li>
-    <li>Enhanced analytics and player statistics</li>
-    <li>Mobile app version</li>
 </ul>

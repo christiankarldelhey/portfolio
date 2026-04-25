@@ -27,6 +27,10 @@ const siteConfig: SiteConfig = {
         {
             text: 'Challenges',
             href: '/blog'
+        },
+        {
+            text: 'Contact',
+            href: '/contact'
         }
     ],
     footerNavLinks: [
@@ -61,7 +65,10 @@ const siteConfig: SiteConfig = {
                 text: 'View Projects',
                 href: '/projects'
             },
-
+            {
+                text: 'Contact',
+                href: '/contact'
+            }
         ]
     },
     subscribe: {

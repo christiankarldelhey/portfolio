@@ -4,7 +4,7 @@ description: Web app that searches geotagged YouTube travel videos and pins them
 publishDate: 'Feb 01 2025'
 isFeatured: true
 image:
-  # src: '/youtravel.png'
+  src: '/youtravel.png'
   alt: Youtravel - YouTube Travel Map
 video: 'eb-3xtmjExg'
 seo:
@@ -21,8 +21,14 @@ seo:
     <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3 Reactivity</span>
 </div>
 
-<p><strong>Project Overview:</strong><br />
-Youtravel is a web application that searches for geotagged YouTube travel videos and displays them on an interactive map. Users can explore travel content spatially, save favorite videos, and plan trips using video content as inspiration.</p>
+
+<p>Youtravel is a web application that searches for geotagged YouTube travel videos and displays them on an interactive map. Users can explore travel content spatially, save favorite videos, and plan trips using video content as inspiration.</p>
+
+<div class="flex gap-8 mt-6">
+    <a href="https://you-travel-8abc8.web.app" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">Explore Youtravel</a>
+
+    <a href="https://github.com/christiankarldelhey/youtubeproject" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">GitHub Repository</a>
+</div>
 
 <h2>Objectives</h2>
 
@@ -32,6 +38,14 @@ Youtravel is a web application that searches for geotagged YouTube travel videos
     <li>Implement geospatial visualization of video content</li>
     <li>Build a favorites system for trip planning</li>
 </ol>
+
+<figure class="relative mt-6">
+    <div class="relative">
+        <img src="/youtravel.png" alt="Youtravel preview" class="rounded-lg" />
+        <div class="absolute inset-0 bg-black opacity-20 rounded-lg pointer-events-none"></div>
+    </div>
+    <figcaption class="text-sm italic text-gray-600 dark:text-gray-400">Exploring the north of Norway</figcaption>
+</figure>
 
 <h2>Features</h2>
 
@@ -70,31 +84,5 @@ Youtravel is a web application that searches for geotagged YouTube travel videos
     <li>Responsive design for mobile planning</li>
 </ul>
 
-<h2>Live Demo</h2>
 
-<a href="https://you-travel-8abc8.web.app" target="_blank">Explore Youtravel</a>
 
-<h2>Source Code</h2>
-
-<a href="https://github.com/christiankarldelhey/youtubeproject" target="_blank">GitHub Repository</a>
-
-<h2>Development Journey</h2>
-
-<p>This project serves as a gateway into GIS-oriented web development, combining video content with spatial visualization. The main challenge was working with YouTube's limited geolocation data and developing creative solutions to extract location information from various metadata sources.</p>
-
-<h2>Technical Challenges</h2>
-
-<ol>
-    <li><strong>Geolocation Data Extraction:</strong> YouTube doesn't always provide precise geolocation data in video metadata, requiring creative parsing strategies</li>
-    <li><strong>API Rate Limiting:</strong> Managing YouTube Data API quotas while providing a smooth user experience</li>
-    <li><strong>Map Performance:</strong> Optimizing map rendering with multiple markers and clusters</li>
-</ol>
-
-<h2>Future Enhancements</h2>
-
-<ul>
-    <li>Social sharing of travel routes</li>
-    <li>Integration with travel booking APIs</li>
-    <li>AI-powered travel recommendations</li>
-    <li>Mobile app version</li>
-</ul>
