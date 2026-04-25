@@ -1,0 +1,100 @@
+---
+title: 'Youtravel: YouTube Travel Map - Geotagged Video Explorer'
+description: Web app that searches geotagged YouTube travel videos and pins them on an interactive map, with a favorites system for trip planning.
+publishDate: 'Feb 01 2025'
+isFeatured: true
+image:
+  # src: '/youtravel.png'
+  alt: Youtravel - YouTube Travel Map
+video: 'eb-3xtmjExg'
+seo:
+  image:
+    src: '../../assets/images/youtravel.png'
+    alt: Youtravel - YouTube Travel Map
+---
+
+<div class="flex flex-wrap gap-2 mb-6">
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">YouTube Data API</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Leaflet.js</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Browser Geolocation API</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3 Reactivity</span>
+</div>
+
+<p><strong>Project Overview:</strong><br />
+Youtravel is a web application that searches for geotagged YouTube travel videos and displays them on an interactive map. Users can explore travel content spatially, save favorite videos, and plan trips using video content as inspiration.</p>
+
+<h2>Objectives</h2>
+
+<ol>
+    <li>Create an interactive map interface for travel video discovery</li>
+    <li>Integrate YouTube Data API for video search</li>
+    <li>Implement geospatial visualization of video content</li>
+    <li>Build a favorites system for trip planning</li>
+</ol>
+
+<h2>Features</h2>
+
+<h3>1. YouTube Data API Integration:</h3>
+
+<ul>
+    <li>Search for geotagged travel videos</li>
+    <li>Extract location data from video metadata</li>
+    <li>Handle API rate limiting and error cases</li>
+</ul>
+
+<h3>2. Interactive Map Visualization:</h3>
+
+<ul>
+    <li>Using Leaflet.js for the interactive map component</li>
+    <li>Custom markers for each video location</li>
+    <li>Clustering for dense video areas</li>
+    <li>Filter by location or video category</li>
+</ul>
+
+<h3>3. Geolocation Challenges & Solutions:</h3>
+
+<ul>
+    <li>Video description parsing for location mentions</li>
+    <li>Tag analysis as location hints</li>
+    <li>User-submitted locations for manual pinning</li>
+    <li>Fallback strategies for videos without precise location data</li>
+</ul>
+
+<h3>4. User Features:</h3>
+
+<ul>
+    <li>Favorites system for trip planning</li>
+    <li>Video preview in map popups</li>
+    <li>Search by destination or video type</li>
+    <li>Responsive design for mobile planning</li>
+</ul>
+
+<h2>Live Demo</h2>
+
+<a href="https://you-travel-8abc8.web.app" target="_blank">Explore Youtravel</a>
+
+<h2>Source Code</h2>
+
+<a href="https://github.com/christiankarldelhey/youtubeproject" target="_blank">GitHub Repository</a>
+
+<h2>Development Journey</h2>
+
+<p>This project serves as a gateway into GIS-oriented web development, combining video content with spatial visualization. The main challenge was working with YouTube's limited geolocation data and developing creative solutions to extract location information from various metadata sources.</p>
+
+<h2>Technical Challenges</h2>
+
+<ol>
+    <li><strong>Geolocation Data Extraction:</strong> YouTube doesn't always provide precise geolocation data in video metadata, requiring creative parsing strategies</li>
+    <li><strong>API Rate Limiting:</strong> Managing YouTube Data API quotas while providing a smooth user experience</li>
+    <li><strong>Map Performance:</strong> Optimizing map rendering with multiple markers and clusters</li>
+</ol>
+
+<h2>Future Enhancements</h2>
+
+<ul>
+    <li>Social sharing of travel routes</li>
+    <li>Integration with travel booking APIs</li>
+    <li>AI-powered travel recommendations</li>
+    <li>Mobile app version</li>
+</ul>

@@ -1,0 +1,99 @@
+---
+title: 'Youtravel: YouTube Data API Integration'
+excerpt: Integrating YouTube Data API to search for geotagged travel videos and display them on an interactive map.
+publishDate: 'Feb 01 2025'
+tags:
+  - API
+  - YouTube
+  - Geolocation
+  - Vue 3
+seo:
+  image:
+    src: '../../assets/images/youtravel.png'
+    alt: Youtravel API integration
+---
+
+<img src="../../assets/images/youtravel.png" alt="Youtravel API" />
+
+<p>Integrating the YouTube Data API to search for geotagged travel videos and display them on an interactive map. This post explores the challenges and solutions for building a geotagged video explorer.</p>
+
+<h2>API Integration</h2>
+
+<p>The YouTube Data API provides powerful search capabilities, but extracting geolocation data requires careful handling of video metadata.</p>
+
+<h3>Search Implementation</h3>
+
+```javascript
+// Example search query with location parameters
+const searchParams = {
+  part: 'snippet',
+  q: 'travel barcelona',
+  type: 'video',
+  location: '41.3851,2.1734',
+  locationRadius: '100km',
+  key: API_KEY
+};
+```
+
+<h2>Geolocation Challenges</h2>
+
+<p>YouTube doesn't always provide precise geolocation data in video metadata. The solution involves:</p>
+
+<ol>
+    <li><strong>Video Description Parsing:</strong> Extracting location mentions from descriptions</li>
+    <li><strong>Tag Analysis:</strong> Using video tags as location hints</li>
+    <li><strong>User-Submitted Locations:</strong> Allowing users to pin videos to specific locations</li>
+</ol>
+
+<h3>Multi-Strategy Approach</h3>
+
+<p>Since YouTube's geolocation data is limited, I implemented a multi-strategy approach:</p>
+
+<ul>
+    <li><strong>Primary:</strong> Use YouTube's location data when available</li>
+    <li><strong>Secondary:</strong> Parse video descriptions for location mentions</li>
+    <li><strong>Tertiary:</strong> Analyze video tags for geographic keywords</li>
+    <li><strong>Fallback:</strong> Allow manual user pinning</li>
+</ul>
+
+<h2>Interactive Maps</h2>
+
+<p>Using Leaflet.js for the interactive map component with custom markers for each video. The map supports:</p>
+
+<ul>
+    <li>Clustering for dense video areas</li>
+    <li>Custom popup with video preview</li>
+    <li>Filter by location or video category</li>
+    <li>Responsive design for mobile planning</li>
+</ul>
+
+<h2>Technology Stack</h2>
+
+<div class="flex flex-wrap gap-2">
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">YouTube Data API</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Leaflet.js</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Browser Geolocation API</span>
+</div>
+
+<h2>Performance Considerations</h2>
+
+<p>Managing API rate limits while providing a smooth user experience required:</p>
+
+<ul>
+    <li>Caching frequently accessed video data</li>
+    <li>Lazy loading map markers</li>
+    <li>Implementing pagination for large result sets</li>
+    <li>Debouncing search queries</li>
+</ul>
+
+<h2>Future Enhancements</h2>
+
+<p>This project serves as a gateway into GIS-oriented web development. Future improvements will include:</p>
+
+<ul>
+    <li>Social sharing of travel routes</li>
+    <li>Integration with travel booking APIs</li>
+    <li>AI-powered travel recommendations</li>
+    <li>Enhanced location extraction using NLP</li>
+</ul>

@@ -1,0 +1,77 @@
+---
+title: 'Hasen: Initial Setup and Architecture'
+excerpt: Setting up the foundational architecture for Hasen multiplayer card game using Domain-Driven Design with a shared domain layer.
+publishDate: 'Jan 15 2025'
+tags:
+  - Architecture
+  - Socket.IO
+  - Vue 3
+seo:
+  image:
+    src: '../../assets/images/hasen.png'
+    alt: Hasen architecture setup
+---
+
+<img src="../../assets/images/hasen.png" alt="Hasen architecture" />
+
+<p>Setting up the foundational architecture for Hasen, a real-time multiplayer card game. This post covers the initial technical decisions and implementation approach.</p>
+
+<h2>Architecture Overview</h2>
+
+<p>The game uses a Domain-Driven Design approach with a shared domain layer consumed by both the Vue 3 frontend and Node.js backend. This ensures consistency in game rules and state management across the entire stack.</p>
+
+<h3>Key Components</h3>
+
+<ul>
+    <li><strong>WebSocket Communication:</strong> Using Socket.IO for real-time event handling</li>
+    <li><strong>Lobby System:</strong> Matchmaking and room management</li>
+    <li><strong>Turn Management:</strong> Synchronized game state across clients</li>
+    <li><strong>Scoring System:</strong> Real-time score updates and validation</li>
+</ul>
+
+<h2>Technical Stack</h2>
+
+<div class="flex flex-wrap gap-2">
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Composition API</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Pinia</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Node.js</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Express</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">MongoDB</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Socket.IO</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">WebSockets</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">TailwindCSS</span>
+</div>
+
+<h2>Domain-Driven Design Implementation</h2>
+
+<p>The shared domain layer includes card definitions, game rules, and event schemas that are used by both frontend and backend, ensuring type safety and consistency.</p>
+
+<h3>Benefits of DDD in This Context</h3>
+
+<ol>
+    <li><strong>Consistency:</strong> Game rules are identical across client and server</li>
+    <li><strong>Type Safety:</strong> Shared TypeScript types prevent mismatches</li>
+    <li><strong>Maintainability:</strong> Business logic is centralized and testable</li>
+    <li><strong>Scalability:</strong> Easy to add new game features without breaking existing code</li>
+</ol>
+
+<h2>Initial Challenges</h2>
+
+<p>Setting up the shared domain layer required careful consideration of:</p>
+<ul>
+    <li>How to serialize domain events for WebSocket transmission</li>
+    <li>State synchronization strategies</li>
+    <li>Conflict resolution when multiple clients act simultaneously</li>
+    <li>Performance optimization for real-time updates</li>
+</ul>
+
+<h2>Next Steps</h2>
+
+<p>Future development will focus on:</p>
+<ul>
+    <li>Additional game modes and card types</li>
+    <li>Enhanced UI animations</li>
+    <li>Tournament system</li>
+    <li>Player statistics and analytics</li>
+</ul>

@@ -31,10 +31,6 @@ const siteConfig: SiteConfig = {
     ],
     footerNavLinks: [
         {
-            text: 'Contact',
-            href: '/contact'
-        },
-        {
             text: 'GitHub',
             href: 'https://github.com/christiankarldelhey'
         },
