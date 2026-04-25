@@ -14,6 +14,11 @@ seo:
 ---
 
 <!-- ![Youtravel preview](../../assets/images/youtravel.png) -->
+<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">YouTube Data API</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Leaflet.js</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Browser Geolocation API</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3 Reactivity</span>
 
 **Project Overview:**
 Youtravel is a web application that searches for geotagged YouTube travel videos and displays them on an interactive map. Users can explore travel content spatially, save favorite videos, and plan trips using video content as inspiration.
@@ -56,11 +61,7 @@ Youtravel is a web application that searches for geotagged YouTube travel videos
 
 ## Technology Stack
 
-- **Frontend:** Vue 3
-- **API:** YouTube Data API
-- **Maps:** Leaflet.js for interactive maps
-- **Geolocation:** Browser Geolocation API
-- **State Management:** Vue 3 reactivity system
+
 
 ## Live Demo
 

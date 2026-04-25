@@ -17,7 +17,7 @@ const siteConfig: SiteConfig = {
     },
     headerNavLinks: [
         {
-            text: 'Home',
+            text: 'About',
             href: '/'
         },
         {
@@ -25,19 +25,11 @@ const siteConfig: SiteConfig = {
             href: '/projects'
         },
         {
-            text: 'Updates',
+            text: 'Challenges',
             href: '/blog'
-        },
-        {
-            text: 'About',
-            href: '/about'
         }
     ],
     footerNavLinks: [
-        {
-            text: 'About',
-            href: '/about'
-        },
         {
             text: 'Contact',
             href: '/contact'
@@ -73,10 +65,7 @@ const siteConfig: SiteConfig = {
                 text: 'View Projects',
                 href: '/projects'
             },
-            {
-                text: 'Contact Me',
-                href: '/contact'
-            }
+
         ]
     },
     subscribe: {

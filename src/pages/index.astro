@@ -4,6 +4,7 @@ import Button from '../components/Button.astro';
 import Hero from '../components/Hero.astro';
 import PostPreview from '../components/PostPreview.astro';
 import ProjectPreview from '../components/ProjectPreview.astro';
+import Badge from '../components/Badge.astro';
 import siteConfig from '../data/site-config';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../utils/data-utils';
@@ -17,6 +18,103 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
 
 <BaseLayout description={siteConfig.description}>
     <Hero {...siteConfig.hero} />
+
+    <section class="mb-16 sm:mb-24 prose prose-lg max-w-none">
+        <h2 class="mb-8 font-serif text-xl italic sm:text-2xl">Skills and Expertise</h2>
+        <p>I specialize in modern frontend development with a focus on:</p>
+
+        <div class="mb-6">
+            <h3 class="font-semibold mb-3">Frontend Core</h3>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="JavaScript (ES6+)" />
+                <Badge text="TypeScript" />
+                <Badge text="HTML5" />
+                <Badge text="CSS3" />
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <h3 class="font-semibold mb-3">Frameworks</h3>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Vue 3 (Composition API)" />
+                <Badge text="Pinia" />
+                <Badge text="Vue 2" />
+                <Badge text="React" />
+                <Badge text="React Native" />
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <h3 class="font-semibold mb-3">Real-Time & APIs</h3>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Socket.IO" />
+                <Badge text="WebSockets" />
+                <Badge text="REST APIs" />
+                <Badge text="YouTube Data API" />
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <h3 class="font-semibold mb-3">Backend & Databases</h3>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Node.js" />
+                <Badge text="Express" />
+                <Badge text="MongoDB" />
+                <Badge text="PHP" />
+                <Badge text="Laravel (basic)" />
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <h3 class="font-semibold mb-3">Testing & Tooling</h3>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Jest" />
+                <Badge text="Vitest" />
+                <Badge text="Git" />
+                <Badge text="Docker" />
+                <Badge text="Jenkins" />
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <h3 class="font-semibold mb-3">AI-Augmented Development</h3>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Claude" />
+                <Badge text="Windsurf" />
+                <Badge text="MCP integrations" />
+                <Badge text="Agentic coding workflows" />
+            </div>
+        </div>
+
+        <h2 class="mb-8 font-serif text-xl italic sm:text-2xl">Professional Experience</h2>
+
+        <h3>Formación Ninja · Barcelona, Spain</h3>
+        <p><strong>Senior Frontend Developer (May 2025 – October 2025)</strong></p>
+        <p>Led frontend development of a React Native mobile app for Spanish civil service exam preparation. Built UX-focused features including practice tests, progress tracking, and user onboarding flows.</p>
+
+        <h3>Stensul · Buenos Aires / New York (Remote)</h3>
+        <p><strong>Frontend Developer (January 2020 – March 2025)</strong></p>
+        <ul>
+            <li>Led migration from Vue 2 (Options API) to Vue 3 (Composition API), improving performance and maintainability</li>
+            <li>Implemented a new design system across multiple application sections</li>
+            <li>Owned and maintained the frontend XSS filtering system</li>
+            <li>Collaborated closely with QA, Product, and Design teams</li>
+        </ul>
+
+        <h3>Ministerio de Producción · Buenos Aires</h3>
+        <p><strong>Frontend Developer (December 2016 – January 2020)</strong></p>
+        <p>Built and maintained React-based web applications and accessible pages to support digital transformation for Argentine small industries.</p>
+
+        <h2 class="mb-8 font-serif text-xl italic sm:text-2xl">Get in Touch</h2>
+        <ul>
+            <li><strong>Location:</strong> Barcelona, Spain</li>
+            <li><strong>Email:</strong> caascaas@gmail.com</li>
+            <li><strong>Phone:</strong> +34 658 028 828</li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/christiankarldelhey">View Profile</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/christiankarldelhey">View Profile</a></li>
+        </ul>
+    </section>
+
     {
         featuredProjects?.length > 0 && (
             <div class="mb-16 sm:mb-24">
@@ -33,12 +131,12 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
     {
         featuredPosts?.length > 0 && (
             <div class="mb-16 sm:mb-24">
-                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Writing</h2>
+                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Challenges</h2>
                 {featuredPosts.map((post) => (
                     <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
                 ))}
                 <div class="mt-12 sm:mt-16">
-                    <Button href="/blog">View All Posts</Button>
+                    <Button href="/blog">View All Challenges</Button>
                 </div>
             </div>
         )
