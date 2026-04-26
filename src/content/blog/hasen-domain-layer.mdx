@@ -1,0 +1,24 @@
+---
+title: 'Hasen: Why I Built a Domain Layer Before Writing a Single Component'
+description: Building an agnostic domain layer for a real-time multiplayer card game
+publishDate: 'Mar 10 2026'
+image:
+  src: '/logo-hasen.png'
+  alt: Hasen Domain Layer
+tags:
+  - Architecture
+  - Domain-Driven Design
+  - Vue 3
+seo:
+  image:
+    src: '../../assets/images/logo-hasen.png'
+    alt: Hasen domain layer
+---
+
+<h2>The Problem</h2>
+
+<p>I was building Hasen, an online card game, and hit an architectural question before I'd written a single line of UI: where do the game rules live? In a real-time multiplayer game, the same rules need to be enforced both on the frontend (for instant feedback) and on the backend (because you never trust the client). If I scattered the logic across components and API handlers, I'd end up with two separate implementations that would inevitably drift apart — a classic recipe for bugs disguised as "weird edge cases."</p>
+
+<h2>How did I solve it</h2>
+
+<p>I extracted all game logic into an agnostic domain layer — a pure TypeScript module with zero dependencies on Vue, Express, or anything framework-specific. It only knew about the game: cards, turns, valid moves, win conditions. Both the frontend and the backend consumed this same package. The result was beautiful in its simplicity: fix a rule once, fix it everywhere. It also made testing trivial — no need to spin up a browser or a server to validate game logic, just plain unit tests against pure functions. For a solo project, that kind of architecture might seem overkill. But the moment you realize you haven't duplicated a single business rule, it feels exactly right.</p>

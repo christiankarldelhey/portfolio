@@ -1,0 +1,24 @@
+---
+title: 'Stensul: Migrating from Vue 2 to Vue 3 as a Team of One'
+description: Migrating a production Vue 2 app to Vue 3 as the sole frontend developer
+publishDate: 'Sep 01 2024'
+image:
+  src: '/stensul.png'
+  alt: Stensul Vue Migration
+tags:
+  - Vue 3
+  - Migration
+  - Performance
+seo:
+  image:
+    src: '../../assets/images/stensul.png'
+    alt: Stensul Vue migration
+---
+
+<h2>The Problem</h2>
+
+<p>Migrating a production app from Vue 2 to Vue 3 sounds like a refactor. It isn't — it's a reimplementation. The differences aren't just syntactic; they're architectural. Mixins vs. Composables. Options API vs. Composition API. Vuex vs. Pinia. As the sole frontend developer on my team at Stensul, I had to make these decisions alone, maintain feature parity, and keep shipping — all at the same time. The real danger wasn't breaking things (tests catch that) — it was doing a mechanical port that missed the point of Vue 3 entirely.</p>
+
+<h2>How did I solve it</h2>
+
+<p>I treated it as a rewrite with a purpose. Instead of translating mixins 1:1, I decomposed them into Composables scoped to their feature domain — no more shared state bags, no more mystery side effects. I leaned heavily into TypeScript to catch the issues that Vue 2's loose typing had been hiding for years. We moved from Vuex to Pinia, which honestly felt like a reward after the hard parts — straightforward stores, no mutations boilerplate. I also did a full pass to pull every hardcoded string into the i18n dictionary, because if you're rewriting components anyway, you might as well fix the things you'd been postponing. The result wasn't just a Vue 3 app — it was a better-architected one.</p>

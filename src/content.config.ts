@@ -20,11 +20,16 @@ const blog = defineCollection({
     schema: ({ image }) =>
         z.object({
             title: z.string(),
+            description: z.string().optional(),
             excerpt: z.string().optional(),
             publishDate: z.coerce.date(),
             updatedDate: z.coerce.date().optional(),
             isFeatured: z.boolean().default(false),
             tags: z.array(z.string()).default([]),
+            image: z.object({
+                src: z.string().optional(),
+                alt: z.string().optional()
+            }).optional(),
             seo: seoSchema(image).optional()
         })
 });

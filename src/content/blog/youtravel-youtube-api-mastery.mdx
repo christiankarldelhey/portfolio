@@ -1,0 +1,24 @@
+---
+title: 'YouTravel: Taming the YouTube API (Without Burning Through Your Quota)'
+description: Taming the YouTube API quota through smart scheduling and spatial grid strategies
+publishDate: 'Apr 15 2025'
+image:
+  src: '/logo-youtravel.png'
+  alt: YouTravel YouTube API
+tags:
+  - API
+  - YouTube
+  - Integration
+seo:
+  image:
+    src: '../../assets/images/logo-youtravel.png'
+    alt: YouTravel YouTube API
+---
+
+<h2>The Problem</h2>
+
+<p>The YouTube Data API gives you a generous quota — until it doesn't. When you're trying to collect geolocated video data across entire countries or regions, you burn through API calls fast. The other problem was geographic bias: if I naively searched by city center coordinates, I'd get data heavily concentrated in tourist hotspots like the Eiffel Tower area, completely missing the neighborhoods, suburbs, and periphery that were arguably more interesting for my use case.</p>
+
+<h2>How did I solve it</h2>
+
+<p>Two strategies saved the project. First, I implemented quota-aware scheduling — batching requests, caching results aggressively, and prioritizing areas with low existing coverage rather than re-fetching what I already had. Second, I moved away from single-point searches and started using a spatial grid approach: dividing regions into cells and querying each cell's centroid rather than a city's center. This distributed coverage evenly and deliberately excluded the oversaturated cores. The result was a dataset that actually represented a region — not just its most Instagrammable square kilometer.</p>

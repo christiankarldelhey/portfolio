@@ -1,0 +1,24 @@
+---
+title: 'Hasen: Why REST Wasn't Enough and WebSockets Changed Everything'
+description: Why REST wasn't enough for real-time multiplayer and how WebSockets changed everything
+publishDate: 'Mar 15 2026'
+image:
+  src: '/logo-hasen.png'
+  alt: Hasen WebSockets
+tags:
+  - WebSockets
+  - Real-time
+  - Architecture
+seo:
+  image:
+    src: '../../assets/images/logo-hasen.png'
+    alt: Hasen WebSockets
+---
+
+<h2>The Problem</h2>
+
+<p>I started building Hasen's multiplayer system assuming I could just use REST endpoints for player communication. Simple, familiar, done. Then reality hit: in a card game, when Player A plays a card, Player B needs to know about it immediately — not on the next HTTP request, not after a polling interval, but right now. REST is stateless and request-driven; it can't push events to a client. I was trying to use a postal service to have a live conversation.</p>
+
+<h2>How did I solve it</h2>
+
+<p>I replaced the REST approach with WebSockets via Socket.io, organized around the concept of rooms. Each game session became a room — players joined it on connection, and all game events (card plays, turn changes, game over) were broadcast to everyone in that room. The shift in mental model was the real challenge: instead of thinking in terms of "request → response", I had to think in terms of "events emitted and events received." Once that clicked, the implementation felt natural. Rooms handled isolation between concurrent games, and the server became an event router rather than a data endpoint. Not every feature needs real-time — but when it does, reach for sockets without hesitation.</p>

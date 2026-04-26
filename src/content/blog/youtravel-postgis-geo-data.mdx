@@ -1,0 +1,24 @@
+---
+title: 'YouTravel: Using PostGIS to Find Places the Algorithms Haven't Noticed Yet'
+description: Using PostGIS to find emerging travel destinations through geospatial analysis
+publishDate: 'May 20 2025'
+image:
+  src: '/logo-youtravel.png'
+  alt: YouTravel PostGIS
+tags:
+  - PostGIS
+  - Geospatial
+  - Database
+seo:
+  image:
+    src: '../../assets/images/logo-youtravel.png'
+    alt: YouTravel PostGIS
+---
+
+<h2>The Problem</h2>
+
+<p>I had a hypothesis: if a location has lots of geolocated YouTube videos but very little formal tourism infrastructure nearby, it might be an emerging destination — somewhere real travelers are discovering before the travel guides catch up. The problem was that testing this hypothesis meant combining point data (videos), polygon data (regions), proximity calculations, and density comparisons across potentially thousands of records. SQL wasn't going to cut it. I needed something that understood space.</p>
+
+<h2>How did I solve it</h2>
+
+<p>I introduced PostGIS to the stack, which turned my database into a spatial reasoning engine. The core model is simple: youtube_videos as geolocated points, osm_pois from OpenStreetMap tagged with tourism=*, amenity=*, and leisure=*, and a spatial grid for aggregation. With queries using ST_DWithin, ST_Buffer, and ST_Intersects, I can now ask real questions like "how many formal tourism POIs exist within 1km of each video cluster?" and derive a videos-to-POIs ratio that flags zones with high spontaneous content but low formal recognition. The categories this surfaces — Hidden but Active, Known and Saturated, Emerging Nature Spot — are the kind of insight you can't get from a spreadsheet. This one is still cooking, but the spatial SQL foundation is already revealing patterns I couldn't see before.</p>
