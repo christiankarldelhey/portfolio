@@ -1,9 +1,10 @@
 ---
-title: 'Hasen: Why I Built a Domain Layer Before Writing a Single Component'
+title: >-
+  Hasen: Why I Built a Domain Layer Before Writing a Single Component
 description: Building an agnostic domain layer for a real-time multiplayer card game
 publishDate: 'Mar 10 2026'
 image:
-  src: '/logo-hasen.png'
+  src: '/logo-hasen.svg'
   alt: Hasen Domain Layer
 tags:
   - Architecture
@@ -17,8 +18,47 @@ seo:
 
 <h2>The Problem</h2>
 
-<p>I was building Hasen, an online card game, and hit an architectural question before I'd written a single line of UI: where do the game rules live? In a real-time multiplayer game, the same rules need to be enforced both on the frontend (for instant feedback) and on the backend (because you never trust the client). If I scattered the logic across components and API handlers, I'd end up with two separate implementations that would inevitably drift apart — a classic recipe for bugs disguised as "weird edge cases."</p>
+<p>I was building Hasen, an online card game, and hit an architectural question
+before I'd written a single line of UI: where do the game rules live? In a
+real-time multiplayer game, the same rules need to be enforced both on the
+frontend (for instant feedback) and on the backend (because you never trust the
+client). If I scattered the logic across components and API handlers, I'd end
+up with two separate implementations that would inevitably drift apart and
+create a classic recipe for bugs disguised as "weird edge cases."</p>
 
 <h2>How did I solve it</h2>
 
-<p>I extracted all game logic into an agnostic domain layer — a pure TypeScript module with zero dependencies on Vue, Express, or anything framework-specific. It only knew about the game: cards, turns, valid moves, win conditions. Both the frontend and the backend consumed this same package. The result was beautiful in its simplicity: fix a rule once, fix it everywhere. It also made testing trivial — no need to spin up a browser or a server to validate game logic, just plain unit tests against pure functions. For a solo project, that kind of architecture might seem overkill. But the moment you realize you haven't duplicated a single business rule, it feels exactly right.</p>
+<p>I extracted all game logic into an agnostic domain layer, a pure TypeScript
+module with zero dependencies on Vue, Express, or anything framework-specific.
+It only knew about the game: cards, turns, valid moves, win conditions. Both
+the frontend and the backend consumed this same package. The result was
+really simple: fix a rule once, fix it everywhere. It also made
+testing trivial, no need to spin up a browser or a server to validate game
+logic, just plain unit tests against pure functions. For a solo project, that
+kind of architecture might seem overkill. But the moment you realize you haven't
+duplicated a single business rule, it feels exactly right.</p>
+
+
+```typescript
+import type { PlayingCard, LeadSuit, PlayerId, Trick, TrickNumber } from "../interfaces";
+
+export function compareCards(
+    winning_card: PlayingCard,
+    current_card: PlayingCard,
+    trick_number: TrickNumber,
+    leadSuit: LeadSuit | null
+  ): PlayingCard {
+    // current_card is never the lead card because compareCards is only used after first play
+    const currentCardRank = getEffectiveRank(current_card, leadSuit, trick_number, false);
+    const winningCardRank = getEffectiveRank(winning_card, leadSuit, trick_number);
+
+    // EXCEPTION: Flowers Q (rank 31) beats Berries S (rank 40) when Berries S leads
+    if (currentCardRank === 31 && winningCardRank === 40) {
+      return current_card as PlayingCard;
+    }
+    
+    // Normal cases: higher rank wins
+    const newWinningCard = winningCardRank >= currentCardRank ? winning_card : current_card;
+
+    return newWinningCard as PlayingCard;
+  }

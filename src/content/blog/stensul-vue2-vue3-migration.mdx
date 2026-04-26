@@ -1,5 +1,6 @@
 ---
-title: 'Stensul: Migrating from Vue 2 to Vue 3 as a Team of One'
+title: >-
+  Stensul: Migrating from Vue 2 to Vue 3 as a Team of One
 description: Migrating a production Vue 2 app to Vue 3 as the sole frontend developer
 publishDate: 'Sep 01 2024'
 image:
@@ -17,8 +18,126 @@ seo:
 
 <h2>The Problem</h2>
 
-<p>Migrating a production app from Vue 2 to Vue 3 sounds like a refactor. It isn't — it's a reimplementation. The differences aren't just syntactic; they're architectural. Mixins vs. Composables. Options API vs. Composition API. Vuex vs. Pinia. As the sole frontend developer on my team at Stensul, I had to make these decisions alone, maintain feature parity, and keep shipping — all at the same time. The real danger wasn't breaking things (tests catch that) — it was doing a mechanical port that missed the point of Vue 3 entirely.</p>
+<p>Migrating a production app from Vue 2 to Vue 3 sounds like a refactor. It
+isn't, it's a reimplementation. The differences aren't just syntactic; they're
+architectural. Mixins vs. Composables. Options API vs. Composition API. Vuex vs.
+Pinia. As the sole frontend developer on my team at Stensul, I had to make these
+decisions alone, maintain feature parity, and keep shipping all at the same
+time. The real danger wasn't breaking things (tests catch that), it was doing
+a mechanical port that missed the point of Vue 3 entirely.</p>
 
 <h2>How did I solve it</h2>
 
-<p>I treated it as a rewrite with a purpose. Instead of translating mixins 1:1, I decomposed them into Composables scoped to their feature domain — no more shared state bags, no more mystery side effects. I leaned heavily into TypeScript to catch the issues that Vue 2's loose typing had been hiding for years. We moved from Vuex to Pinia, which honestly felt like a reward after the hard parts — straightforward stores, no mutations boilerplate. I also did a full pass to pull every hardcoded string into the i18n dictionary, because if you're rewriting components anyway, you might as well fix the things you'd been postponing. The result wasn't just a Vue 3 app — it was a better-architected one.</p>
+<p>I treated it as a rewrite with a purpose. Instead of translating mixins 1:1, I
+decomposed them into Composables scoped to their feature domain no more shared
+state bags, no more mystery side effects. I leaned heavily into TypeScript to
+catch the issues that Vue 2's loose typing had been hiding for years. We moved
+from Vuex to Pinia, which honestly felt like a reward after the hard parts
+straightforward stores, no mutations boilerplate. I also did a full pass to pull
+every hardcoded string into the i18n dictionary, because if you're rewriting
+components anyway, you might as well fix the things you'd been postponing. The
+result wasn't just a Vue 3 app it was a better-architected one.</p>
+
+<h2>Example: Mixins vs Composables</h2>
+
+<p>A big part of the migration was replacing mixins with composables. The main difference shows up when logic involves side effects, async calls, or shared state.</p>
+
+<figure class="mt-6">
+  <figcaption class="text-sm italic text-gray-600 dark:text-gray-400 mb-2">
+    Vue 2 Options API with mixin
+  </figcaption>
+
+```js
+// userMixin.js
+const userMixin = {
+  data() {
+    return {
+      user: null,
+      loading: false,
+      error: null
+    }
+  },
+  created() {
+    this.fetchUser()
+  },
+  methods: {
+    async fetchUser() {
+      this.loading = true
+      try {
+        const res = await fetch('/api/user')
+        this.user = await res.json()
+      } catch (e) {
+        this.error = e
+      } finally {
+        this.loading = false
+      }
+    }
+  }
+}
+
+// Profile.vue
+const profileComponent = {
+  mixins: [userMixin],
+  template: `
+    <div>
+      <p v-if="loading">Loading...</p>
+      <p v-else-if="error">Error</p>
+      <p v-else>{{ user.name }}</p>
+    </div>
+  `
+}
+```
+</figure>
+
+<figure class="mt-6">
+  <figcaption class="text-sm italic text-gray-600 dark:text-gray-400 mb-2">
+    Vue 3 Composition API with composable
+  </figcaption>
+
+```ts
+// useUser.ts
+import { ref, onMounted } from 'vue'
+
+function useUser() {
+  const user = ref(null)
+  const loading = ref(false)
+  const error = ref(null)
+
+  const fetchUser = async () => {
+    loading.value = true
+    try {
+      const res = await fetch('/api/user')
+      user.value = await res.json()
+    } catch (e) {
+      error.value = e
+    } finally {
+      loading.value = false
+    }
+  }
+
+  onMounted(fetchUser)
+
+  return { user, loading, error, fetchUser }
+}
+
+// Profile.vue
+import { useUser } from './useUser'
+
+const profileComponent = {
+  setup() {
+    const { user, loading, error } = useUser()
+
+    return { user, loading, error }
+  },
+  template: `
+    <div>
+      <p v-if="loading">Loading...</p>
+      <p v-else-if="error">Error</p>
+      <p v-else>{{ user?.name }}</p>
+    </div>
+  `
+}
+```
+</figure>
+
+<p class="mt-4">In Vue 2, mixins make it hard to know where data and side effects come from, especially as they grow. In Vue 3, composables make dependencies explicit, logic easier to reuse, and side effects easier to control and test.</p>

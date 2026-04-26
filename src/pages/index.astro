@@ -33,6 +33,7 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
                 <ul>
                     <li>Led frontend development of a React Native mobile app for Spanish civil service exam preparation</li>
                     <li>Built UX-focused features including practice tests, progress tracking, and user onboarding flows</li>
+                    <li>Leveraged AI tools responsibly to accelerate development while maintaining code quality and avoiding technical debt <a href="/blog/fn-responsible-ai" class="text-main hover:underline text-sm">→ See how I solved it</a></li>
                 </ul>
             </div>
         </div>
@@ -45,9 +46,9 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
                 <h4>Stensul · Buenos Aires / New York (Remote)</h4>
                 <p><strong>Frontend Developer (January 2020 – March 2025)</strong></p>
                 <ul>
-                    <li>Led migration from Vue 2 (Options API) to Vue 3 (Composition API), improving performance and maintainability</li>
+                    <li>Led migration from Vue 2 (Options API) to Vue 3 (Composition API), improving performance and maintainability <a href="/blog/stensul-vue2-vue3-migration" class="text-main hover:underline text-sm">→ See how I solved it</a></li>
                     <li>Implemented a new design system across multiple application sections</li>
-                    <li>Owned and maintained the frontend XSS filtering system</li>
+                    <li>Owned and maintained the frontend XSS filtering system <a href="/blog/stensul-xss-filters" class="text-main hover:underline text-sm">→ See how I solved it</a></li>
                     <li>Collaborated closely with QA, Product, and Design teams</li>
                 </ul>
             </div>
@@ -71,84 +72,66 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
 
         <h2 class="mb-8 font-serif text-xl italic sm:text-2xl">Skills and Expertise</h2>
 
-        <div class="flex gap-4 mb-6">
-            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-center text-3xl">💻</div>
-            <div class="grow">
-                <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">Frontend Core</div>
-                <div class="flex flex-wrap gap-2">
-                    <Badge text="JavaScript (ES6+)" />
-                    <Badge text="TypeScript" />
-                    <Badge text="HTML5" />
-                    <Badge text="CSS3" />
-                </div>
+        <div class="mb-6">
+            <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">Frontend Core</div>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="JavaScript (ES6+)" />
+                <Badge text="TypeScript" />
+                <Badge text="HTML5" />
+                <Badge text="CSS3" />
             </div>
         </div>
 
-        <div class="flex gap-4 mb-6">
-            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-center text-3xl">🧩</div>
-            <div class="grow">
-                <div class="text-lg !mt-0 !mb-2 !p-0">Frameworks</div>
-                <div class="flex flex-wrap gap-2">
-                    <Badge text="Vue 3 (Composition API)" />
-                    <Badge text="Pinia" />
-                    <Badge text="Vue 2" />
-                    <Badge text="React" />
-                    <Badge text="React Native" />
-                </div>
+        <div class="mb-6">
+            <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">Frameworks</div>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Vue 3 (Composition API)" />
+                <Badge text="Pinia" />
+                <Badge text="Vue 2" />
+                <Badge text="React" />
+                <Badge text="React Native" />
             </div>
         </div>
 
-        <div class="flex gap-4 mb-6">
-            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-center text-3xl">🔗</div>
-            <div class="grow">
-                <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">Real-Time & APIs</div>
-                <div class="flex flex-wrap gap-2">
-                    <Badge text="Socket.IO" />
-                    <Badge text="WebSockets" />
-                    <Badge text="REST APIs" />
-                    <Badge text="YouTube Data API" />
-                </div>
+        <div class="mb-6">
+            <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">Real-Time & APIs</div>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Socket.IO" />
+                <Badge text="WebSockets" />
+                <Badge text="REST APIs" />
+                <Badge text="YouTube Data API" />
             </div>
         </div>
 
-        <div class="flex gap-4 mb-6">
-            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-center text-3xl">🗄️</div>
-            <div class="grow">
-                <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">Backend & Databases</div>
-                <div class="flex flex-wrap gap-2">
-                    <Badge text="Node.js" />
-                    <Badge text="Express" />
-                    <Badge text="MongoDB" />
-                    <Badge text="PHP" />
-                    <Badge text="Laravel (basic)" />
-                </div>
+        <div class="mb-6">
+            <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">Backend & Databases</div>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Node.js" />
+                <Badge text="Express" />
+                <Badge text="MongoDB" />
+                <Badge text="PHP" />
+                <Badge text="Laravel (basic)" />
             </div>
         </div>
 
-        <div class="flex gap-4 mb-6">
-            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-center text-3xl">🧪</div>
-            <div class="grow">
-                <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">Testing & Tooling</div>
-                <div class="flex flex-wrap gap-2">
-                    <Badge text="Jest" />
-                    <Badge text="Vitest" />
-                    <Badge text="Git" />
-                    <Badge text="Docker" />
-                    <Badge text="Jenkins" />
-                </div>
+        <div class="mb-6">
+            <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">Testing & Tooling</div>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Jest" />
+                <Badge text="Vitest" />
+                <Badge text="Git" />
+                <Badge text="Docker" />
+                <Badge text="Jenkins" />
             </div>
         </div>
 
-        <div class="flex gap-4 mb-6">
-            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-center text-3xl">🤖</div>
-            <div class="grow">
-                <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">AI-Augmented Development</div>
-                <div class="flex flex-wrap gap-2">
-                    <Badge text="Claude" />
-                    <Badge text="Windsurf" />
-                    <Badge text="MCP integrations" />
-                    <Badge text="Agentic coding workflows" />
-                </div>
+        <div class="mb-6">
+            <div class="font-semibold text-lg !mt-0 !mb-2 !p-0">AI-Augmented Development</div>
+            <div class="flex flex-wrap gap-2">
+                <Badge text="Claude" />
+                <Badge text="Windsurf" />
+                <Badge text="MCP integrations" />
+                <Badge text="Agentic coding workflows" />
             </div>
         </div>
     </section>

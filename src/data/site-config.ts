@@ -1,5 +1,5 @@
 import avatar from '../assets/images/Christian_Delhey.jpeg';
-import hero from '../assets/images/hasen.png';
+import hero from '../assets/images/logo-hasen.svg';
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
@@ -12,7 +12,7 @@ const siteConfig: SiteConfig = {
     subtitle: 'Senior Front-End Developer | Vue 3 · React · TypeScript | 8+ years',
     description: 'Senior Front-End Developer with 8+ years of experience building scalable web and mobile interfaces. Specialized in Vue 3 (Composition API, Pinia) and TypeScript.',
     image: {
-        src: '/hasen.png',
+        src: '/logo-hasen.svg',
         alt: 'Christian Karl Delhey - Senior Front-End Developer'
     },
     headerNavLinks: [

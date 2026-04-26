@@ -4,12 +4,12 @@ description: Full-stack multiplayer card game with real-time WebSocket event arc
 publishDate: 'Jan 15 2025'
 isFeatured: true
 image:
-  src: '/hasen.png'
+  src: '/logo-hasen.svg'
   alt: Hasen - Real-Time Multiplayer Card Game
 video: '80lyAojG9Vw'
 seo:
   image:
-    src: '../../assets/images/hasen.png'
+    src: '../../assets/images/logo-hasen.svg'
     alt: Hasen - Real-Time Multiplayer Card Game
 ---
 
@@ -25,7 +25,18 @@ seo:
     <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">TailwindCSS</span>
 </div>
 
-<p>Hasen is a full-stack multiplayer card game featuring real-time WebSocket event architecture. The project applies Domain-Driven Design principles with a shared domain layer consumed by both the Vue 3 frontend and Node.js backend, ensuring consistency in game rules and state management.</p>
+<p>I've always liked board games, and for the past five years I've been designing
+them. Hasen is one of my latest projects and one I enjoyed a lot. It's inspired
+by traditional German card games, with some influence from the Argentine Truco.
+What started as a tabletop game designing rules and cards ended up becoming a
+tech project for my portfolio. I wanted to see if I could turn it into an
+online game.</p>
+
+<p>I began by modeling the data with TypeScript and quickly ran into a key
+question: where should the game rules live? frontend or backend? That's when I
+introduced a domain layer. I moved all the game logic into a shared,
+framework-agnostic module so both client and server use the same rules. That way,
+I avoid duplicating logic and keep everything consistent.</p>
 
 <div class="flex gap-8 mt-6">
     <a href="https://hasen-game.onrender.com" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">Play Hasen</a>
@@ -33,13 +44,20 @@ seo:
     <a href="https://github.com/christiankarldelhey/Hasen" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">GitHub Repository</a>
 </div>
 
+<h2>Challenges</h2>
+
+<ul>
+    <li><a href="/blog/hasen-websockets" class="text-main hover:underline">Why REST Wasn't Enough and WebSockets Changed Everything</a></li>
+    <li><a href="/blog/hasen-domain-layer" class="text-main hover:underline">Why I Built a Domain Layer Before Writing a Single Component</a></li>
+</ul>
+
 <h2>Objectives</h2>
 
 <ol>
-    <li>Build a real-time multiplayer card game with WebSocket communication</li>
-    <li>Implement Domain-Driven Design with shared domain layer</li>
-    <li>Create a scalable architecture supporting multiple game modes</li>
-    <li>Provide smooth user experience with real-time updates</li>
+    <li>Build a real-time multiplayer card game</li>
+    <li>Keep game rules consistent across frontend and backend</li>
+    <li>Handle real-time communication between players</li>
+    <li>Design a simple but solid game architecture</li>
 </ol>
 
 <figure class="relative mt-6">
@@ -52,27 +70,40 @@ seo:
 
 <h2>Features</h2>
 
-<h3>1. Real-Time WebSocket Communication:</h3>
+<h3>1. Real-time multiplayer</h3>
 
 <ul>
-    <li>Using Socket.IO for real-time event handling</li>
-    <li>Lobby system for matchmaking and room management</li>
-    <li>Turn management with synchronized game state across clients</li>
-    <li>Real-time score updates and validation</li>
+    <li>WebSocket communication using Socket.IO</li>
+    <li>Room-based system for isolated matches</li>
+    <li>Instant updates for all players</li>
 </ul>
 
-<h3>2. Domain-Driven Design Architecture:</h3>
+<h3>2. Game system</h3>
 
 <ul>
-    <li>Shared domain layer (cards, rules, events) consumed by both frontend and backend</li>
-    <li>Type-safe game logic across the entire stack</li>
-    <li>Consistent state management and business rules</li>
+    <li>Turn-based gameplay with card mechanics</li>
+    <li>Betting system inspired by Truco</li>
+    <li>Score tracking and win conditions</li>
 </ul>
 
-<h3>3. User Experience:</h3>
+<h3>3. Architecture</h3>
 
 <ul>
-    <li>Responsive UI with TailwindCSS</li>
-    <li>Smooth animations and transitions</li>
-    <li>Mobile-first responsive layout</li>
+    <li>Shared domain layer for game rules</li>
+    <li>Same logic used in frontend and backend</li>
+    <li>Easy to test with pure TypeScript functions</li>
 </ul>
+
+<h3>4. User flow</h3>
+
+<ul>
+    <li>Create and join game lobbies</li>
+    <li>Smooth real-time interaction between players</li>
+    <li>Responsive interface built with Vue</li>
+</ul>
+
+<div class="flex gap-8 mt-6">
+    <a href="https://hasen-game.onrender.com" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">Play Hasen</a>
+
+    <a href="https://github.com/christiankarldelhey/Hasen" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">GitHub Repository</a>
+</div>

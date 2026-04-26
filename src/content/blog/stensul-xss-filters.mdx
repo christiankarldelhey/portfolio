@@ -1,5 +1,6 @@
 ---
-title: 'Stensul: Building an XSS Exception System Without Opening the Door to Attacks'
+title: >-
+  Stensul: Building an XSS Exception System Without Opening the Door to Attacks
 description: Building a per-client XSS exception system without compromising security
 publishDate: 'Jun 15 2024'
 image:
@@ -17,8 +18,22 @@ seo:
 
 <h2>The Problem</h2>
 
-<p>At Stensul, we had XSS filters running on both the frontend and backend — a solid defense-in-depth setup. The problem was that some of our clients were legitimately using code snippets inside our editor. Embedding a &lt;script&gt; tag isn't always an attack; sometimes it's just a marketer who needs to add a tracking pixel. Our filters didn't care about intent — they blocked everything, and the false positives were becoming a real friction point for clients who were, technically, doing nothing wrong.</p>
+<p>At Stensul, we had XSS filters running on both the frontend and backend a
+solid defense-in-depth setup. The problem was that some of our clients were
+legitimately using code snippets inside our editor. Embedding a &lt;script&gt;
+tag isn't always an attack; sometimes it's just a marketer who needs to add a
+tracking pixel. Our filters didn't care about intent they blocked everything,
+and the false positives were becoming a real friction point for clients who
+were, technically, doing nothing wrong.</p>
 
 <h2>How did I solve it</h2>
 
-<p>We built a per-client XSS exception system backed by environment configuration. The default behavior stayed strict — no XSS insertions allowed, full stop. But for clients who requested it, we could define specific allowed patterns in their dedicated .env file, which the filters would check before blocking. It was the principle of least privilege applied to XSS: nobody gets exceptions by default, you earn them explicitly. This let us keep a hard security baseline while acknowledging that real-world usage is messier than threat models assume. The lesson? Good security isn't about saying no to everything — it's about saying yes only when you've thought it through.</p>
+<p>We built a per-client XSS exception system backed by environment configuration.
+The default behavior stayed strict no XSS insertions allowed, full stop. But
+for clients who requested it, we could define specific allowed patterns in their
+dedicated .env file, which the filters would check before blocking. It was the
+principle of least privilege applied to XSS: nobody gets exceptions by default,
+you earn them explicitly. This let us keep a hard security baseline while
+acknowledging that real-world usage is messier than threat models assume. The
+lesson? Good security isn't about saying no to everything, it's about saying
+yes only when you've thought it through.</p>

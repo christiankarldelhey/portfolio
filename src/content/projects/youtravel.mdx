@@ -1,28 +1,30 @@
 ---
 title: 'Youtravel: YouTube Travel Map - Geotagged Video Explorer'
-description: Web app that searches geotagged YouTube travel videos and pins them on an interactive map, with a favorites system for trip planning.
+description: Web app that lets users discover geolocated YouTube videos on an interactive map, helping find hidden gems and plan trips visually.
 publishDate: 'Feb 01 2025'
 isFeatured: true
 image:
-  src: '/youtravel.png'
+  src: '/logo-youtravel.svg'
   alt: Youtravel - YouTube Travel Map
 video: 'eb-3xtmjExg'
 seo:
   image:
-    src: '../../assets/images/youtravel.png'
+    src: '../../assets/images/logo-youtravel.svg'
     alt: Youtravel - YouTube Travel Map
 ---
 
 <div class="flex flex-wrap gap-2 mb-6">
     <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">YouTube Data API</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">TypeScript</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Tailwind CSS</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Firebase</span>
     <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Leaflet.js</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Browser Geolocation API</span>
-    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">Vue 3 Reactivity</span>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 mr-1 mb-2">YouTube Data API</span>
 </div>
 
+<p>I’ve always enjoyed traveling with my wife whenever we can. One thing I kept running into was how hard it is to find “hidden gems” or less obvious places, like small villages, lesser-known hiking spots, or vibrant new neighborhoods in big cities. Most platforms show the same popular places. That’s why I built Youtravel.</p>
 
-<p>Youtravel is a web application that searches for geotagged YouTube travel videos and displays them on an interactive map. Users can explore travel content spatially, save favorite videos, and plan trips using video content as inspiration.</p>
+<p>Youtravel is a responsive web app that lets you explore geolocated YouTube travel videos directly on a map. The idea is simple: instead of searching places, you explore real experiences. It’s useful both for planning trips and for those moments when you just wonder: “has anyone ever been here?”</p>
 
 <div class="flex gap-8 mt-6">
     <a href="https://you-travel-8abc8.web.app" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">Explore Youtravel</a>
@@ -30,13 +32,20 @@ seo:
     <a href="https://github.com/christiankarldelhey/youtubeproject" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">GitHub Repository</a>
 </div>
 
+<h2>Challenges</h2>
+
+<ul>
+    <li><a href="/blog/youtravel-youtube-api-mastery" class="text-main hover:underline">Taming the YouTube API (Without Burning Through Your Quota)</a></li>
+    <li><a href="/blog/youtravel-postgis-geo-data" class="text-main hover:underline">Using PostGIS to Find Emerging Travel Destinations</a></li>
+</ul>
+
 <h2>Objectives</h2>
 
 <ol>
-    <li>Create an interactive map interface for travel video discovery</li>
-    <li>Integrate YouTube Data API for video search</li>
-    <li>Implement geospatial visualization of video content</li>
-    <li>Build a favorites system for trip planning</li>
+    <li>Make travel discovery more exploratory and less list-based</li>
+    <li>Use video content as a way to understand places</li>
+    <li>Visualize content geographically through an interactive map</li>
+    <li>Allow users to save and revisit interesting locations</li>
 </ol>
 
 <figure class="relative mt-6">
@@ -49,40 +58,41 @@ seo:
 
 <h2>Features</h2>
 
-<h3>1. YouTube Data API Integration:</h3>
+<h3>1. Map-based video exploration</h3>
 
 <ul>
-    <li>Search for geotagged travel videos</li>
-    <li>Extract location data from video metadata</li>
-    <li>Handle API rate limiting and error cases</li>
+    <li>Browse videos from a list or directly on a map with pins</li>
+    <li>Interactive map built with Leaflet</li>
+    <li>Video previews inside map popups</li>
 </ul>
 
-<h3>2. Interactive Map Visualization:</h3>
+<h3>2. Smart video search</h3>
 
 <ul>
-    <li>Using Leaflet.js for the interactive map component</li>
-    <li>Custom markers for each video location</li>
-    <li>Clustering for dense video areas</li>
-    <li>Filter by location or video category</li>
+    <li>Search geolocated videos using the YouTube API</li>
+    <li>Filter by topics like food, hiking, budget travel or history</li>
+    <li>Location suggestions powered by Geoapify</li>
 </ul>
 
-<h3>3. Geolocation Challenges & Solutions:</h3>
+<h3>3. Handling geolocation</h3>
 
 <ul>
-    <li>Video description parsing for location mentions</li>
-    <li>Tag analysis as location hints</li>
-    <li>User-submitted locations for manual pinning</li>
-    <li>Fallback strategies for videos without precise location data</li>
+    <li>Use video metadata when available</li>
+    <li>Fallback to tags and descriptions to infer locations</li>
+    <li>Graceful handling of incomplete or missing data</li>
 </ul>
 
-<h3>4. User Features:</h3>
+<h3>4. User features</h3>
 
 <ul>
-    <li>Favorites system for trip planning</li>
-    <li>Video preview in map popups</li>
-    <li>Search by destination or video type</li>
-    <li>Responsive design for mobile planning</li>
+    <li>Save favorite videos (when logged in)</li>
+    <li>Access a personal favorites section</li>
+    <li>Switch between English and Spanish</li>
+    <li>Fully responsive for mobile use</li>
 </ul>
 
+<div class="flex gap-8 mt-6">
+    <a href="https://you-travel-8abc8.web.app" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">Explore Youtravel</a>
 
-
+    <a href="https://github.com/christiankarldelhey/youtubeproject" target="_blank" class="inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-transparent border border-main rounded-full transition-colors hover:bg-muted !no-underline hover:!no-underline">GitHub Repository</a>
+</div>
