@@ -55,7 +55,7 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         // title: 'Christian Karl Delhey',
-        text: "Senior Front-End Developer with 8+ years of experience building scalable web and mobile interfaces.\n\nSpecialized in **Vue 3 (Composition API, Pinia)** and **TypeScript**, with strong React and React Native experience. Proven track record in Vue 2→3 migrations, design system implementation, and frontend security (XSS).\n\nActively building full-stack personal projects using WebSockets, real-time architecture, and geospatial APIs.\n\n**Location**: Barcelona, Spain\n**Contact**: caascaas@gmail.com | +34 658 028 828",
+        text: "Senior Front-End Developer with 8+ years of experience building scalable web and mobile interfaces.\n\nSpecialized in **Vue 3 (Composition API, Pinia)** and **TypeScript**, with strong React and React Native experience. Proven track record in Vue 2→3 migrations, design system implementation, and frontend security (XSS).\n\nActively building full-stack projects using WebSockets, real-time architecture, and geospatial APIs.\n\n**Location**: Barcelona, Spain\n**Contact**: caascaas@gmail.com | +34 658 028 828",
         // image: {
         //     src: hero,
         //     alt: 'Hasen - Real-Time Multiplayer Card Game'
