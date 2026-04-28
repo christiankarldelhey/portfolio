@@ -1,7 +1,7 @@
 ---
 title: >-
   Stensul: Building an XSS Exception System Without Opening the Door to Attacks
-description: Building a per-client XSS exception system without compromising security
+description: A per-tenant XSS exception system that kept the security baseline strict while making room for legitimate edge cases
 publishDate: 'Jun 15 2024'
 image:
   src: '/stensul.png'
@@ -16,24 +16,22 @@ seo:
     alt: Stensul XSS security
 ---
 
+
 <h2>The Problem</h2>
 
-<p>At Stensul, we had XSS filters running on both the frontend and backend a
-solid defense-in-depth setup. The problem was that some of our clients were
-legitimately using code snippets inside our editor. Embedding a &lt;script&gt;
-tag isn't always an attack; sometimes it's just a marketer who needs to add a
-tracking pixel. Our filters didn't care about intent they blocked everything,
-and the false positives were becoming a real friction point for clients who
-were, technically, doing nothing wrong.</p>
 
-<h2>How did I solve it</h2>
+<p>Stensul is a multi-tenant email creation platform, so XSS protection wasn't optional: we ran a dedicated XSS detector service plus filters on both frontend and backend, a solid defense-in-depth setup. The friction came from the fact that legitimate usage and attack patterns often look identical at the parser level. A marketer pasting <code>@import url('https://fonts.googleapis.com/...')</code> to load a Google Font triggers the same rule as a real CSS import-based attack. Same with tracking pixels, custom <code>&lt;style&gt;</code> blocks in proprietary CSS fields, or HTML snippets in module code. The filters didn't care about intent, they blocked everything, and false positives were piling up in the <code>#xss-production-alerts</code> Slack channel for clients who were technically doing nothing wrong.</p>
 
-<p>We built a per-client XSS exception system backed by environment configuration.
-The default behavior stayed strict no XSS insertions allowed, full stop. But
-for clients who requested it, we could define specific allowed patterns in their
-dedicated .env file, which the filters would check before blocking. It was the
-principle of least privilege applied to XSS: nobody gets exceptions by default,
-you earn them explicitly. This let us keep a hard security baseline while
-acknowledging that real-world usage is messier than threat models assume. The
-lesson? Good security isn't about saying no to everything, it's about saying
-yes only when you've thought it through.</p>
+
+<h2>How I solved it</h2>
+
+
+<p>I built a per-tenant exception system stored as a document in each client's <code>settings</code> collection, not as global config. The default behavior stayed strict, no XSS insertions allowed, full stop. For clients with a legitimate need, exceptions were defined at three levels of granularity: the entity (Library, Module, Campaign, Snippet…), the specific field inside that entity (<code>configPropietaryCss</code>, <code>body_html</code>, <code>data.text</code>…), and the exact rule to skip (<code>css.import</code>, <code>linkTag</code>, <code>frames</code>…). That way, allowing a client to use <code>@import</code> for fonts inside their library's custom head didn't silently open the door to <code>&lt;iframe&gt;</code> injections in their campaign body.</p>
+
+<p>The workflow I designed around it was just as important as the data model. Every alert went to Slack, the encoded payload was pulled from Kibana logs, decoded (gzip + base64), classified against a known attack table, and only then mapped to an entity/field exception. New exceptions were always merged into the existing object, never replaced, and tested against the original "attack" before shipping, to confirm we were skipping exactly what we intended and nothing more.</p>
+
+
+<h2>What I took from it</h2>
+
+
+<p>It was the principle of least privilege applied to XSS: nobody gets exceptions by default, you earn them explicitly, scoped to the smallest surface that solves the problem. The lesson? Good security isn't about saying no to everything, it's about saying yes only when you've thought it through, written it down, and made it auditable.</p>
